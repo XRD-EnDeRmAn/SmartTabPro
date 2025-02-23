@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartTabPro | Browser Revolution</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            /* Dark Theme */
+            --bg-dark: #0f0f0f;
+            --text-dark: #ffffff;
+            --primary-dark: #7f5af0;
+            --secondary-dark: #2cb67d;
+            --card-bg-dark: rgba(255,255,255,0.05);
+            
+            /* Light Theme */
+            --bg-light: #f8f9fa;
+            --text-light: #2d3436;
+            --primary-light: #0984e3;
+            --secondary-light: #6c5ce7;
+            --card-bg-light: rgba(0,0,0,0.03);
+            
+            /* Global */
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: var(--transition);
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Particle Background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* Navigation */
+        .nav-container {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 2rem;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .nav-menu {
+            display: flex;
+            justify-content: flex-end;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .nav-menu a:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* Theme Switch */
+        .theme-switcher {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: var(--card-bg);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+            transform: translateX(-50px);
+            opacity: 0;
+            animation: slideIn 1s forwards;
+        }
+
+        /* Features Grid */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 5rem 10%;
+        }
+
+        .feature-card {
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            transform: translateY(50px);
+            opacity: 0;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Düzeltilmiş Comparison Slider */
+        .comparison-container {
+            max-width: 1200px;
+            margin: 5rem auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .comparison {
+            position: relative;
+            height: 600px;
+        }
+
+        .before-wrapper {
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .before {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .after {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: relative;
+            z-index: 1;
+        }
+
+        .slider {
+            position: absolute;
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            outline: none;
+            margin: 0;
+            z-index: 3;
+            cursor: col-resize;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 4px;
+            height: 600px;
+            background: #fff;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            border-radius: 2px;
+        }
+
+        /* Animations */
+        @keyframes slideIn {
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Theme Styles */
+        body[data-theme="dark"] {
+            --bg: var(--bg-dark);
+            --text: var(--text-dark);
+            --primary: var(--primary-dark);
+            --secondary: var(--secondary-dark);
+            --card-bg: var(--card-bg-dark);
+        }
+
+        body[data-theme="light"] {
+            --bg: var(--bg-light);
+            --text: var(--text-light);
+            --primary: var(--primary-light);
+            --secondary: var(--secondary-light);
+            --card-bg: var(--card-bg-light);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .comparison { height: 400px; }
+            .slider::-webkit-slider-thumb { height: 400px; }
+            .nav-menu { gap: 1rem; }
+            .nav-menu a { padding: 0.5rem 1rem; }
+        }
+    </style>
+</head>
+<body data-theme="dark">
+    <div id="particles-js"></div>
+
+    <nav class="nav-container">
+        <ul class="nav-menu">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="license.html">License</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+    </nav>
+
+    <div class="theme-switcher" onclick="toggleTheme()">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 data-aos="fade-up">Browser Evolution<br>Perfected</h1>
+            <div class="features" id="features">
+                <div class="feature-card" data-aos="fade-up">
+                    <i class="fas fa-rocket fa-3x"></i>
+                    <h3>Lightning Speed</h3>
+                    <p>Optimized performance with zero latency</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-palette fa-3x"></i>
+                    <h3>Smart Themes</h3>
+                    <p>Auto-adapting color schemes</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fas fa-shield-alt fa-3x"></i>
+                    <h3>Advanced Security</h3>
+                    <p>Military-grade protection</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery" id="gallery" data-aos="fade-up">
+        <img src="images/gallery1.png" alt="Gallery Image 1">
+        <img src="images/gallery2.png" alt="Gallery Image 2">
+        <img src="images/gallery3.png" alt="Gallery Image 3">
+        <img src="images/gallery4.png" alt="Gallery Image 4">
+        <img src="images/gallery5.png" alt="Gallery Image 5">
+        <img src="images/gallery6.png" alt="Gallery Image 6">
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ 
+            duration: 1000, 
+            once: true,
+            easing: 'ease-out-quad'
+        });
+
+        function toggleTheme() {
+            const body = document.body;
+            const themeSwitcher = document.querySelector('.theme-switcher i');
+            const newTheme = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            
+            body.setAttribute('data-theme', newTheme);
+            themeSwitcher.className = newTheme === 'dark' 
+                ? 'fas fa-moon' 
+                : 'fas fa-sun';
+            localStorage.setItem('theme', newTheme);
+        }
+
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.body.setAttribute('data-theme', savedTheme);
+        document.querySelector('.theme-switcher i').className = 
+            savedTheme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+    </script>
+</body>
+</html>

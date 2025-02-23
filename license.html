@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartTabPro | License Agreement</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    
+    <style>
+/* Root Colors and Themes */
+:root {
+    /* Dark Theme */
+    --bg-dark: #0f0f0f;
+    --text-dark: #ffffff;
+    --primary-dark: #7f5af0;
+    --secondary-dark: #2cb67d;
+    --card-bg-dark: rgba(255, 255, 255, 0.1);
+    
+    /* Light Theme */
+    --bg-light: #f8f9fa;
+    --text-light: #2d3436;
+    --primary-light: #0984e3;
+    --secondary-light: #6c5ce7;
+    --card-bg-light: rgba(0, 0, 0, 0.03);
+    
+    /* Global Transition */
+    --transition: all 0.4s ease-in-out;
+}
+
+/* General Styles */
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: var(--transition);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary);
+}
+
+h1, h2 {
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+h1 {
+    font-size: 3rem;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    color: var(--primary);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Page Layout */
+.policy-page {
+    max-width: 900px;
+    margin: 120px auto;
+    padding: 0 3rem;
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Policy Section */
+.policy-section {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    padding: 2.5rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.policy-section[data-aos] {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.policy-page p {
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+    font-size: 1.1rem;
+}
+
+.policy-page ul {
+    list-style: disc;
+    margin-left: 1.5rem;
+}
+
+/* Navigation */
+.nav-container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #1e2a47;
+    padding: 1rem 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: center;
+}
+
+.nav-menu li {
+    margin: 0 2rem;
+}
+
+.nav-menu li a {
+    font-size: 1.1rem;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.nav-menu li a.active {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+/* Theme Switcher */
+.theme-switcher {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--text);
+    transition: color 0.3s ease;
+}
+
+.theme-switcher:hover {
+    color: var(--primary);
+}
+
+/* Particles Background */
+#particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .policy-page {
+        padding: 0 1.5rem;
+    }
+
+    .nav-container {
+        padding: 1rem;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-menu li {
+        margin: 1rem 0;
+    }
+
+    .policy-page h1 {
+        font-size: 2.2rem;
+    }
+
+    .policy-page h2 {
+        font-size: 1.4rem;
+    }
+}
+
+    </style>
+</head>
+<body data-theme="dark">
+    <div id="particles-js"></div>
+
+    <nav class="nav-container">
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="index.html#gallery">Gallery</a></li>
+            <li><a href="license.html" class="active">License</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+    </nav>
+
+    <div class="theme-switcher" onclick="toggleTheme()">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <main class="policy-page">
+        <h1 data-aos="fade-up">License Agreement</h1>
+
+        <section class="policy-section" data-aos="fade-up" data-aos-delay="200">
+            <h2>Usage Rights</h2>
+ <p>Smart Tab Pro - Extension License
+
+This software is distributed under the [MIT] license.
+
+1. License Grant
+You may use this software for personal, commercial, or educational purposes. You may copy, distribute, and modify the software.
+
+2. Restrictions
+You may not distribute the software under a non-open-source license.
+You may not reverse engineer, decompile, or modify the software and redistribute the source code.
+No additional fees may be charged for the commercial use of this software.
+3. Warranties
+This software is provided "as is," without any warranties. Any damages resulting from the use of the software are the sole responsibility of the user.
+
+4. Copyright
+This software is developed by [xenab] and is copyrighted. The content and code of the software may not be copied without the author's or developer's permission.
+
+5. License Termination
+This license may terminate if the use of the software is prohibited for any reason. The user is required to comply with the terms of the license for continued use of the software.
+
+6. Modifications
+The terms of the software or license may be modified by [xenab] at any time. The updated license text will be provided with the updated version of the software.
+
+7. Contact
+For any questions, concerns, or feedback, please contact [qorxusuzqorxaq@gmail.com]</p>
+
+ </section>
+
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Ortak Scriptler
+        AOS.init({ duration: 800 });
+        particlesJS.load('particles-js', 'assets/particles.json');
+        
+        function toggleTheme() {
+            const body = document.body;
+            const theme = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            body.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        }
+
+        // Sayfa yüklendiğinde tema ayarını yerel depolamadan al
+        window.onload = () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.body.setAttribute('data-theme', savedTheme);
+            }
+        }
+    </script>
+</body>
+</html>

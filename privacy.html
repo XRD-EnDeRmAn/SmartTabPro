@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartTabPro| Privacy</title>
+    <style>
+        /* Global Theme Colors */
+        :root {
+            /* Dark Theme */
+            --bg-dark: #121212;
+            --text-dark: #ffffff;
+            --primary-dark: #7f5af0;
+            --secondary-dark: #2cb67d;
+            --card-bg-dark: rgba(255,255,255,0.1);
+            
+            /* Light Theme */
+            --bg-light: #f8f9fa;
+            --text-light: #2d3436;
+            --primary-light: #0984e3;
+            --secondary-light: #6c5ce7;
+            --card-bg-light: rgba(0,0,0,0.03);
+            
+            /* Global Transition */
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Body and General Styles */
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: var(--transition);
+        }
+
+        /* Navigation Styles */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 2rem;
+            background-color: #1e2a47;
+            z-index: 10;
+        }
+
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu li {
+            margin: 0 1.5rem;
+        }
+
+        .nav-menu a {
+            color: var(--text);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--primary);
+        }
+
+        /* Theme Switcher Button */
+        .theme-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--text);
+            transition: color 0.3s ease;
+        }
+
+        .theme-switcher:hover {
+            color: var(--primary);
+        }
+
+        /* Page Layout */
+        .policy-page {
+            max-width: 900px;
+            margin: 120px auto;
+            padding: 3rem 2rem;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .policy-page h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .policy-page h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .policy-page p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+        }
+
+        /* Section Styling */
+        .policy-section {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+
+        .policy-section[data-aos] {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* AOS Animation */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Particles Background */
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .policy-page {
+                padding: 2rem;
+            }
+
+            .policy-page h1 {
+                font-size: 2.2rem;
+            }
+
+            .policy-page h2 {
+                font-size: 1.4rem;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-menu li {
+                margin: 1rem 0;
+            }
+        }
+    </style>
+</head>
+<body data-theme="dark">
+    <div id="particles-js"></div>
+
+    <nav>
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="index.html#gallery">Gallery</a></li>
+            <li><a href="license.html">License</a></li>
+            <li><a href="privacy.html" class="active">Privacy</a></li>
+        </ul>
+    </nav>
+
+    <div class="theme-switcher" onclick="toggleTheme()">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <main class="policy-page">
+        <h1>Gizlilik Politikası</h1>
+        
+        <section data-aos="fade-up" data-aos-delay="200">
+       
+            <p>Last Updated Date: [23/02/2025] 
+			
+			
+As SmartTabPro, we respect the privacy of our users and do not collect any personal data on our website. No information is requested from our users, stored or shared with third parties.
+
+1. Information Collection
+We do not collect personal information while using our website. No data belonging to our users is stored.
+
+2. Cookies and Local Storage
+Our website may use cookies and local storage only to remember users' theme preferences. This data is completely anonymous and does not contain personal data.
+
+3. Information Sharing
+Your personal data is never shared with third parties.
+
+4. Data Security
+Since we do not collect personal data on our website, there is no risk regarding data security.
+
+5. Changes to Privacy Policy
+If there are any changes to our Privacy Policy, they will be notified on this page with the current date.
+
+6. Contact
+If you have any questions about this Privacy Policy, you can contact us:
+
+E-mail: [qorxusuzqorxaq@gmail.com]</p>
+        </section>
+
+       
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init(); // AOS'yi başlatıyoruz.
+        
+        // Tema değiştirme fonksiyonu
+        function toggleTheme() {
+            const currentTheme = document.body.getAttribute("data-theme");
+            document.body.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
+        }
+    </script>
+</body>
+</html>

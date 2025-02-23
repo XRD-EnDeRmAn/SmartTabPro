@@ -1,0 +1,322 @@
+/* Global Styles & Variables */
+:root {
+  --primary-color: #f5f5f5;
+  --accent-color: #4A90E2;
+  --bg-dark: #1a1a1a;
+  --bg-gradient: linear-gradient(135deg, #2c3e50, #4a4a4a);
+  --frosted: rgba(0, 0, 0, 0.4);
+  --transition-speed: 0.3s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--primary-color);
+  background: var(--bg-gradient);
+  background-size: cover;
+  background-position: center;
+  transition: background var(--transition-speed) ease;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Particles.js container */
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* Navigation Bar */
+.site-header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  background: var(--frosted);
+  backdrop-filter: blur(10px);
+}
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10%;
+}
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+.nav a {
+  margin-left: 20px;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition-speed);
+}
+.nav a:hover {
+  color: var(--accent-color);
+}
+
+/* Theme Toggle Switch */
+.theme-switch {
+  display: flex;
+  align-items: center;
+}
+.theme-switch input {
+  display: none;
+}
+.theme-switch label {
+  cursor: pointer;
+  position: relative;
+  width: 50px;
+  height: 25px;
+  background: #ccc;
+  border-radius: 25px;
+  transition: background var(--transition-speed);
+}
+.theme-switch label::after {
+  content: '';
+  position: absolute;
+  width: 21px;
+  height: 21px;
+  background: #fff;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  transition: transform var(--transition-speed);
+}
+.theme-switch input:checked + label {
+  background: var(--accent-color);
+}
+.theme-switch input:checked + label::after {
+  transform: translateX(25px);
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 120px 10%;
+  min-height: 80vh;
+  position: relative;
+  overflow: hidden;
+  perspective: 1000px;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 50%;
+  transform: translateZ(30px);
+  animation: fadeInRight 1s ease-out;
+}
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(-50px) translateZ(0); }
+  to { opacity: 1; transform: translateX(0) translateZ(30px); }
+}
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+}
+.hero-content p {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+}
+.download-btn {
+  padding: 15px 35px;
+  font-size: 1.2rem;
+  background: var(--accent-color);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  transition: transform var(--transition-speed), background var(--transition-speed);
+  position: relative;
+  overflow: hidden;
+}
+.download-btn:hover {
+  background: #3f7ac9;
+  transform: translateY(-3px);
+}
+/* Magnetic effect on button */
+.magnetic {
+  position: relative;
+}
+.magnetic::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  transition: width 0.4s, height 0.4s;
+}
+.magnetic:hover::after {
+  width: 120%;
+  height: 120%;
+}
+.hero-image {
+  position: relative;
+  z-index: 2;
+  max-width: 45%;
+  transform: translateZ(0);
+  animation: fadeInLeft 1s ease-out;
+}
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(50px) translateZ(0); }
+  to { opacity: 1; transform: translateX(0) translateZ(0); }
+}
+.hero-image img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  transition: transform 0.3s;
+}
+.hero-image img:hover {
+  transform: scale(1.05);
+}
+
+/* Features Section */
+.features {
+  padding: 80px 10%;
+  background: #131313;
+  text-align: center;
+}
+.features h2 {
+  font-size: 2.8rem;
+  margin-bottom: 40px;
+  color: var(--primary-color);
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  justify-items: center;
+}
+.feature-card {
+  background: #1f1f1f;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+.feature-card img {
+  max-width: 80px;
+  margin-bottom: 20px;
+}
+.feature-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+.feature-card p {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+/* Download Section */
+.download-section {
+  padding: 80px 10%;
+  background: #1a1a1a;
+  text-align: center;
+}
+.download-section h2 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+.download-section p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  color: #ccc;
+}
+.primary-btn {
+  background: var(--accent-color);
+  padding: 15px 35px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+}
+.primary-btn:hover {
+  background: #3f7ac9;
+  transform: translateY(-3px);
+}
+
+/* Reviews Section */
+.reviews {
+  padding: 80px 10%;
+  background: #131313;
+  text-align: center;
+}
+.reviews h2 {
+  font-size: 2.8rem;
+  margin-bottom: 40px;
+  color: var(--primary-color);
+}
+.reviews-slider {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+.review-card {
+  background: #1f1f1f;
+  padding: 20px;
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+.review-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+.review-card p {
+  font-style: italic;
+  margin-bottom: 10px;
+  color: #ccc;
+}
+.review-card h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+/* Footer */
+.site-footer {
+  background: #1a1a1a;
+  text-align: center;
+  padding: 20px;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-container {\n    flex-direction: column;\n    gap: 10px;\n  }\n  .hero {\n    flex-direction: column;\n    text-align: center;\n    padding: 80px 5%;\n  }\n  .hero-content, .hero-image {\n    max-width: 100%;\n  }\n  .features-grid, .reviews-slider {\n    grid-template-columns: 1fr;\n    flex-direction: column;\n    align-items: center;\n  }\n  .feature-card, .review-card {\n    width: 90%;\n  }\n}
